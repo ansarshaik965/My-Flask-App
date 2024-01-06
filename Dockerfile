@@ -1,12 +1,17 @@
-FROM python:3
+# Use an official Python runtime as a parent image
+FROM python:3.9.18-slim
 
+# Set the working directory to /app
 WORKDIR /app
 
+# Copy the current directory contents into the container at /app
 COPY . /app
 
-RUN apt-get update -y && \
-    apt-get install -y  python3 && \
-    pip install -r requirements.txt
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD [ "python3","app.py","runserver","0.0.0.0:5000" ]
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
 
+# Run app.py when the container launches
+CMD ["python","app.py"]

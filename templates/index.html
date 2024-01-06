@@ -3,14 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two-Tier Web App</title>
+    <title>LIFT WITH ANSAR</title>
+    <style>
+        /* Add your CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F4D03F;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 0.5em;
+        }
+        nav a {
+            color: #ccfff5;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            white-space: nowrap;
+        }
+        nav a:hover {
+            background-color: #ccfff5;
+        }
+        section {
+            padding: 2em;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Two-Tier Web App!</h1>
-    <form action="/greet" method="post">
-        <label for="name">Enter your name:</label>
-        <input type="text" id="name" name="name" required>
-        <button type="submit">Submit</button>
-    </form>
+    <header>
+        <h1>LIFT WITH ANSAR</h1>
+        <p>divided by body united by gym</p>
+    </header>
+    
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#online-training">ONLINE TRAINING</a>
+        <a href="#transformations">TRANSFORMATIONS</a>
+        <a href="#testimonials">TESTIMONIALS</a>
+        <a href="#about-me">ABOUT ME</a>
+        <a href="#blog">BLOG</a>
+        <a href="#contact-us">CONTACT US</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Lift With Ansar</h2>
+        <p>Your one-stop destination for online coaching on workout and diet plans.</p>
+        <!-- Add more content as needed -->
+    </section>
+
+    <section id="online-training" style="display: none;">
+        <!-- Online Training content as before -->
+    </section>
+
+    <!-- Add more sections as needed -->
+
+    <script>
+        // Add your JavaScript for additional decoration or functionality here
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Hide all sections
+                document.querySelectorAll('section').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Show the selected section
+                const targetId = this.getAttribute('href').substring(1);
+                document.getElementById(targetId).style.display = 'block';
+
+                // Scroll smoothly to the selected section
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
